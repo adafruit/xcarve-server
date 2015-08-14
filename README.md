@@ -1,6 +1,12 @@
 # Raspberry Pi XCarve Server
 A Node.js Raspberry Pi server for controlling an attached XCarve from a remote machine.
 
+## Connecting to a Headless Raspberry Pi
+
+If you would like to connect to a headless Raspberry Pi for setting up WiFi access, you can use the
+[Adafruit Raspberry Pi Finder](https://learn.adafruit.com/the-adafruit-raspberry-pi-finder) app to find and
+connect to your Raspberry Pi.
+
 ## Installation
 
 Make sure you have the latest stable version of Node.js installed on your Raspberry Pi. You can download
