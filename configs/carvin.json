@@ -1,0 +1,16 @@
+{
+  "name" : "Carvin Configs",
+  "baud" : 115200,
+  "separator" : "\n",
+  "readyResponse": "Marlin",
+  "successResponse": "ok",
+  "gcode": {
+    "status": "M500",
+    "settings": "M503",
+    "liftToSafeHeight": "G0 Z10",
+    "home": "M403",
+    "park": "M403",
+    "spindleOn": "M3",
+    "spindleOff": "M5"
+  }
+}

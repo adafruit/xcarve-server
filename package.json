@@ -1,0 +1,11 @@
+{
+  "name": "xcarve-server",
+  "version": "0.1.0",
+  "bin": "./cli",
+  "dependencies": {
+    "onoff": "^1.0.2",
+    "serialport": "1.7.x",
+    "socket.io": "1.3.x",
+    "underscore": "1.4.x"
+  }
+}

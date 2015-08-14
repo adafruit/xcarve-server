@@ -1,0 +1,25 @@
+{
+  "name" : "GRBL 0.9 Default Configs",
+  "baud" : 115200,
+  "separator" : "\r\n",
+  "readyResponse": "Grbl 0.9g",
+  "successResponse": "ok",
+  "gcode": {
+    "flush": "\\u0x18",
+    "home": "$H",
+    "liftToSafeHeight": "G20 G90 Z0.25",
+    "pause": "!",
+    "park": "G20 G90 G0 X0 Y0",
+    "recallCoordinateSystem": "G54",
+    "resume": "~",
+    "saveOrigin": "G10 L20 P0 X0 Y0 Z0",
+    "settings": "$$",
+    "status": "?",
+    "unlock": "$X",
+    "zProbe": "G21 G38.2 Z-100 F80",
+    "spindleOn": "M3",
+    "spindleOff": "M5",
+    "lockMotors": "$1=255\nG91 X0 Y0",
+    "unlockMotors": "$1=0\nG91 X0 Y0"
+  }
+}

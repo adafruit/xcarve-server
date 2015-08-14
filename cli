@@ -1,0 +1,18 @@
+#!/usr/bin/env node
+
+var child,
+    spawn = require('child_process').spawn,
+    fs = require('fs'),
+    path = require('path');
+
+var logo = fs.readFileSync(path.join(__dirname,'logo.txt'), 'utf8');
+
+console.log(logo);
+
+child = spawn('forever', ['start', 'index.js', '-s'], {
+  cwd: __dirname,
+  env: process.env,
+  detached: true
+});
+child.on('error', console.log);
+
