@@ -5,18 +5,12 @@ var spawn = require('child_process').spawn,
     path = require('path'),
     logo = fs.readFileSync(path.join(__dirname,'logo.txt'), 'utf8'),
     cli = require('commander'),
-    package = require('./package.json'),
-    child;
+    package = require('./package.json');
 
-cli
-  .version(package.version)
-  .command('start', 'installs and starts the service')
-  .command('stop', 'stops and removes the service')
-  .parse(process.argv);
 
-if(cli.start) {
+function start() {
 
-  child = spawn('sudo forever-service', ['install', '-s index.js', '--start', '--runAsUser pi'], {
+  var child = spawn('sudo', ['forever-service', 'install', '-s', 'index.js', '--start', '--runAsUser', 'pi', 'xcarve'], {
     cwd: __dirname,
     env: process.env,
     detached: true
@@ -25,20 +19,26 @@ if(cli.start) {
   console.log(logo);
   console.log('starting service on port 1338...');
 
-} else if (cli.stop) {
+  child.on('error', console.log);
 
-  child = spawn('sudo forever-service', ['delete', 'index.js'], {
+}
+
+function stop() {
+
+  var child = spawn('sudo', ['forever-service', 'delete', 'xcarve'], {
     cwd: __dirname,
     env: process.env,
     detached: true
   });
+
   console.log('stopping service...');
 
-} else {
-
-  cli.outputHelp();
+  child.on('error', console.log);
 
 }
 
-child.on('error', console.log);
+cli.version(package.version);
+cli.command('start').description('installs and starts the service').action(start);
+cli.command('stop').description('stops and removes the service').action(stop);
+cli.parse(process.argv);
 
