@@ -57,7 +57,7 @@ stopping service...
 Some of the code included in the `lib/` folder of this repo was extracted from
 [v0.2.1 of the Easel local OS X installer](http://s3.amazonaws.com/easel-prod/paperclip/sender_version_mac_installers/10/original/Easel_Local_v0.2.1.pkg?1435076999).
 
-All other code is Copyright (c) 2014 Adafruit Industries. Licensed under the MIT license.
+All other code is Copyright (c) 2015 Adafruit Industries. Licensed under the MIT license.
 
 Adafruit invests time and resources providing this open source code,
 please support Adafruit and open-source hardware by purchasing products
