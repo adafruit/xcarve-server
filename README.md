@@ -23,18 +23,18 @@ Make sure the global `node_modules` folder on your Raspberry Pi is writable by t
 pi@xcarve ~ $ chown -R pi /usr/local
 ```
 
-Install `forever` and `xcarve-server` on your Raspberry Pi.
+Install `forever-service` and `xcarve-server` on your Raspberry Pi.
 
 ```
-pi@xcarve ~ $ npm install -g forever xcarve-server
+pi@xcarve ~ $ npm install -g forever-service xcarve-server
 ```
 
-## Starting the Daemon
+## Starting the Service
 
-If everything has been installed, you can start the server daemon by running the following command:
+If everything has been installed, you can start the service by running the following command:
 
 ```
-pi@xcarve ~ $ xcarve-server
+pi@xcarve ~ $ xcarve-server start
 
 ██╗  ██╗      ██████╗ █████╗ ██████╗ ██╗   ██╗███████╗
 ╚██╗██╔╝     ██╔════╝██╔══██╗██╔══██╗██║   ██║██╔════╝
@@ -43,10 +43,11 @@ pi@xcarve ~ $ xcarve-server
 ██╔╝ ██╗     ╚██████╗██║  ██║██║  ██║ ╚████╔╝ ███████╗
 ╚═╝  ╚═╝      ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝  ╚═══╝  ╚══════╝
 
-starting server daemon on port 1338...
+starting service on port 1338...
 ```
-## Stopping the Daemon
+## Stopping the Service
 
 ```
-pi@xcarve ~ $ forever stopall
+pi@xcarve ~ $ xcarve-server stop
+stopping service...
 ```
