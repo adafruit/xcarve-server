@@ -1,18 +1,44 @@
 #!/usr/bin/env node
 
-var child,
-    spawn = require('child_process').spawn,
+var spawn = require('child_process').spawn,
     fs = require('fs'),
-    path = require('path');
+    path = require('path'),
+    logo = fs.readFileSync(path.join(__dirname,'logo.txt'), 'utf8'),
+    cli = require('commander'),
+    package = require('./package.json'),
+    child;
 
-var logo = fs.readFileSync(path.join(__dirname,'logo.txt'), 'utf8');
+cli
+  .version(package.version)
+  .command('start', 'installs and starts the service')
+  .command('stop', 'stops and removes the service')
+  .parse(process.argv);
 
-console.log(logo);
+if(cli.start) {
 
-child = spawn('forever', ['start', 'index.js', '-s'], {
-  cwd: __dirname,
-  env: process.env,
-  detached: true
-});
+  child = spawn('sudo forever-service', ['install', '-s index.js', '--start', '--runAsUser pi'], {
+    cwd: __dirname,
+    env: process.env,
+    detached: true
+  });
+
+  console.log(logo);
+  console.log('starting service on port 1338...');
+
+} else if (cli.stop) {
+
+  child = spawn('sudo forever-service', ['delete', 'index.js'], {
+    cwd: __dirname,
+    env: process.env,
+    detached: true
+  });
+  console.log('stopping service...');
+
+} else {
+
+  cli.outputHelp();
+
+}
+
 child.on('error', console.log);
 

@@ -3,7 +3,23 @@
   "version": "0.1.2",
   "bin": "./cli",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adafruit/xcarve-server"
+  },
+  "keywords": [
+    "adafruit",
+    "xcarve",
+    "inventables",
+    "raspberry pi"
+  ],
+  "author": "Todd Treece <todd@uniontownlabs.org>",
+  "bugs": {
+    "url": "https://github.com/adafruit/xcarve-server/issues"
+  },
+  "homepage": "https://github.com/adafruit/xcarve-server",
   "dependencies": {
+    "commander": "^2.8.1",
     "onoff": "^1.0.2",
     "serialport": "1.7.x",
     "socket.io": "1.3.x",
