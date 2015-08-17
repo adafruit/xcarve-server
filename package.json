@@ -1,6 +1,6 @@
 {
   "name": "xcarve-server",
-  "version": "0.1.2",
+  "version": "1.0.0-beta",
   "bin": "./cli",
   "license": "MIT",
   "repository": {
