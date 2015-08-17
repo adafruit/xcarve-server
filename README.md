@@ -20,7 +20,7 @@ v0.12.6
 Make sure the global `node_modules` folder on your Raspberry Pi is writable by the `pi` user.
 
 ```
-pi@xcarve ~ $ chown -R pi /usr/local
+pi@xcarve ~ $ sudo chown -R pi /usr/local
 ```
 
 Install `forever-service` and `xcarve-server` on your Raspberry Pi.

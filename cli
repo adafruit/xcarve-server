@@ -42,3 +42,7 @@ cli.command('start').description('installs and starts the service').action(start
 cli.command('stop').description('stops and removes the service').action(stop);
 cli.parse(process.argv);
 
+if (!process.argv.slice(2).length) {
+  cli.outputHelp();
+}
+
