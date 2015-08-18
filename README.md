@@ -1,6 +1,7 @@
 # Raspberry Pi XCarve Server
 
 A Node.js Raspberry Pi server for controlling a XCarve from a remote machine using [Easel](http://easel.inventables.com).
+
 For detailed install instructions, please visit the tutorial on the [Adafruit Learning System](https://learn.adafruit.com/control-an-xcarve-wirelessly).
 
 ## Connecting to a Headless Raspberry Pi
@@ -24,10 +25,10 @@ Make sure the global `node_modules` folder on your Raspberry Pi is writable by t
 pi@xcarve ~ $ sudo chown -R pi /usr/local
 ```
 
-Install `forever-service` and `xcarve-server` on your Raspberry Pi.
+Install `forever`, `forever-service`, and `xcarve-server` on your Raspberry Pi.
 
 ```console
-pi@xcarve ~ $ npm install -g forever-service xcarve-server
+pi@xcarve ~ $ npm install -g forever forever-service xcarve-server
 ```
 
 ## Starting the Service
