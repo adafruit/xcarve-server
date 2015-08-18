@@ -1,6 +1,7 @@
 # Raspberry Pi XCarve Server
-A Node.js Raspberry Pi server for controlling a XCarve from a remote machine using [Easel][5].
-For detailed install instructions, please visit the tutorial on the [Adafruit Learning System][6].
+
+A Node.js Raspberry Pi server for controlling a XCarve from a remote machine using [Easel](http://easel.inventables.com).
+For detailed install instructions, please visit the tutorial on the [Adafruit Learning System](https://learn.adafruit.com/control-an-xcarve-wirelessly).
 
 ## Connecting to a Headless Raspberry Pi
 
@@ -45,6 +46,7 @@ pi@xcarve ~ $ xcarve-server start
 
 starting service on port 1338...
 ```
+
 ## Stopping the Service
 
 ```console
@@ -67,5 +69,3 @@ from [Adafruit][2]!
 [2]: https://adafruit.com
 [3]: http://node-arm.herokuapp.com
 [4]: https://learn.adafruit.com/the-adafruit-raspberry-pi-finder
-[5]: http://easel.inventables.com
-[6]: https://learn.adafruit.com/control-an-xcarve-wirelessly
