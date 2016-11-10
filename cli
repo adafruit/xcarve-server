@@ -1,39 +1,51 @@
 #!/usr/bin/env node
 
-var spawn = require('child_process').spawn,
+var pm2 = require('pm2'),
     fs = require('fs'),
     path = require('path'),
     logo = fs.readFileSync(path.join(__dirname,'logo.txt'), 'utf8'),
     cli = require('commander'),
     package = require('./package.json');
 
-
 function start() {
 
-  var child = spawn('sudo', ['forever-service', 'install', '-s', 'index.js', '--start', '--runAsUser', 'pi', 'xcarve'], {
-    cwd: __dirname,
-    env: process.env,
-    detached: true
-  });
-
   console.log(logo);
-  console.log('starting service on port 1338...');
+  pm2.connect((err) => {
 
-  child.on('error', console.log);
+    if(err) {
+      console.error(err);
+      process.exit(2);
+    }
+
+    pm2.start({
+      script: 'index.js',
+      name: 'xcarve'
+    }, (err, apps) => {
+      pm2.disconnect();
+      if (err) throw err
+      console.log('starting server on port 1338...\n');
+    });
+
+  });
 
 }
 
 function stop() {
 
-  var child = spawn('sudo', ['forever-service', 'delete', 'xcarve'], {
-    cwd: __dirname,
-    env: process.env,
-    detached: true
+  pm2.connect((err) => {
+
+    if(err) {
+      console.error(err);
+      process.exit(2);
+    }
+
+    pm2.stop('xcarve', (err) => {
+      if(err) throw err;
+      console.log('stopping service...');
+      process.exit();
+    });
+
   });
-
-  console.log('stopping service...');
-
-  child.on('error', console.log);
 
 }
 
@@ -45,4 +57,3 @@ cli.parse(process.argv);
 if (!process.argv.slice(2).length) {
   cli.outputHelp();
 }
-
