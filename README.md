@@ -10,27 +10,23 @@ If you would like to connect to a headless Raspberry Pi for setting up WiFi acce
 
 ## Installation
 
-Make sure you have the latest stable version of Node.js installed on your Raspberry Pi. You can download
-it from the [node-arm][3] project.
+Make sure you have the latest 4.x  version of Node.js installed on your Raspberry Pi. You can install it
+using the [NodeSource][3] installer.
 
 ```console
+pi@xcarve ~ $ curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -
+pi@xcarve ~ $ sudo apt-get install -y nodejs
 pi@xcarve ~ $ node -v
-v0.12.6
+v4.6.2
 ```
 
-Make sure the global `node_modules` folder on your Raspberry Pi is writable by the `pi` user.
+Install `xcarve-server` on your Raspberry Pi.
 
 ```console
-pi@xcarve ~ $ sudo chown -R pi /usr/local
+pi@xcarve ~ $ sudo npm install -g xcarve-server
 ```
 
-Install `forever`, `forever-service`, and `xcarve-server` on your Raspberry Pi.
-
-```console
-pi@xcarve ~ $ npm install -g forever forever-service xcarve-server
-```
-
-## Starting the Service
+## Starting the Server
 
 If everything has been installed, you can start the service by running the following command:
 
@@ -47,7 +43,7 @@ pi@xcarve ~ $ xcarve-server start
 starting service on port 1338...
 ```
 
-## Stopping the Service
+## Stopping the Server
 
 ```console
 pi@xcarve ~ $ xcarve-server stop
@@ -57,15 +53,15 @@ stopping service...
 ## License
 
 Some of the code included in the `lib/` folder of this repo was extracted from
-[v0.2.1 of the Easel local OS X installer][1].
+[v0.2.7 of the Easel local OS X installer][1].
 
-All other code is Copyright (c) 2015 Adafruit Industries. Licensed under the MIT license.
+All other code is Copyright (c) 2015-2016 Adafruit Industries. Licensed under the MIT license.
 
 Adafruit invests time and resources providing this open source code,
 please support Adafruit and open-source hardware by purchasing products
 from [Adafruit][2]!
 
-[1]: http://s3.amazonaws.com/easel-prod/paperclip/sender_version_mac_installers/10/original/Easel_Local_v0.2.1.pkg?1435076999
+[1]: http://easel.inventables.com/downloads
 [2]: https://adafruit.com
-[3]: http://node-arm.herokuapp.com
+[3]: https://github.com/nodesource/distributions
 [4]: https://learn.adafruit.com/the-adafruit-raspberry-pi-finder
