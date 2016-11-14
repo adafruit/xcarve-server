@@ -20,6 +20,12 @@ pi@xcarve ~ $ node -v
 v4.6.2
 ```
 
+Make sure the global `node_modules` folder on your Raspberry Pi is writable by the `pi` user.
+
+```console
+pi@xcarve ~ $ sudo chown -R pi /usr/local
+```
+
 Install `xcarve-server` on your Raspberry Pi.
 
 ```console
