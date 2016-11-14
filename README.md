@@ -29,7 +29,7 @@ pi@xcarve ~ $ sudo chown -R pi /usr/local
 Install `xcarve-server` on your Raspberry Pi.
 
 ```console
-pi@xcarve ~ $ sudo npm install -g xcarve-server
+pi@xcarve ~ $ npm install -g xcarve-server
 ```
 
 ## Starting the Server
