@@ -19,7 +19,8 @@ function start() {
 
     pm2.start({
       script: 'index.js',
-      name: 'xcarve'
+      name: 'xcarve',
+      cwd: process.cwd()
     }, (err, apps) => {
       pm2.disconnect();
       if (err) throw err
