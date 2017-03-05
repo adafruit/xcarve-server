@@ -20,16 +20,19 @@ pi@xcarve ~ $ node -v
 v4.6.2
 ```
 
-Make sure the global `node_modules` folder on your Raspberry Pi is writable by the `pi` user.
+Make sure the global `node_modules` folder on your Raspberry Pi is writable by the `pi` user by running the following commands.
 
 ```console
-pi@xcarve ~ $ sudo chown -R pi /usr/local
+pi@xcarve:~ $ mkdir ~/.npm-global
+pi@xcarve:~ $ npm config set prefix '~/.npm-global'
+pi@xcarve:~ $ echo "export PATH=~/.npm-global/bin:$PATH" >> ~/.bashrc
+pi@xcarve:~ $ source ~/.bashrc
 ```
 
-Install `xcarve-server` on your Raspberry Pi.
+Install `xcarve-server` & `pm2` on your Raspberry Pi.
 
 ```console
-pi@xcarve ~ $ npm install -g xcarve-server
+pi@xcarve ~ $ npm install -g xcarve-server pm2
 ```
 
 ## Starting the Server
@@ -49,12 +52,26 @@ pi@xcarve ~ $ xcarve-server start
 starting service on port 1338...
 ```
 
+## Starting the Server on Boot
+
+Run the following command to enable `pm2` startup on boot.
+
+```console
+pi@xcarve:~ $ sudo pm2 startup systemd
+```
+
+Tell `pm2` to save the current `xcarve-server` process. This will enable `xcarve-server` on boot.
+```console
+pi@xcarve:~ $ pm2 save
+```
+
 ## Stopping the Server
 
 ```console
 pi@xcarve ~ $ xcarve-server stop
 stopping service...
 ```
+
 
 ## License
 
